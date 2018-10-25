@@ -1,5 +1,6 @@
 const NodeEnvironment = require('jest-environment-node');
 const { Builder, By, until } = require('selenium-webdriver');
+const {FileDetector}= require('selenium-webdriver/remote');
 
 class WebDriverEnvironment extends NodeEnvironment {
   constructor(config) {
@@ -7,6 +8,7 @@ class WebDriverEnvironment extends NodeEnvironment {
     const options = config.testEnvironmentOptions || {};
     this.browserName = options.browser || 'chrome';
     this.seleniumAddress = options.seleniumAddress || null;
+    this.fileDetector = options.fileDetector || false;
   }
 
   async setup() {
@@ -19,6 +21,10 @@ class WebDriverEnvironment extends NodeEnvironment {
     driver = await driver.forBrowser(this.browserName).build();
 
     this.driver = driver;
+    
+    if (this.fileDetector) {
+      this.driver.setFileDetector(new FileDetector());
+    }
 
     this.global.by = By;
     this.global.browser = driver;
