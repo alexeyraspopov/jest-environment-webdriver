@@ -4,7 +4,7 @@ Connect [Jest][1] tests to [Selenium WebDriver][2].
 
 ## Limitations
 
-The project is in progress. It only supports running [preinstalled][3] WebDrivers (Chrome, Safari, Firefox, Edge, IE) without additional options. Capabilities configuration will be added soon. Pull requests welcomed.
+The project is in progress. It only supports running [preinstalled][3] WebDrivers (Chrome, Safari, Firefox, Edge, IE) without additional options. It accepts [webdriver1 capabilities](https://www.w3.org/TR/webdriver1/#capabilities). Pull requests welcomed.
 
 ## Usage
 
