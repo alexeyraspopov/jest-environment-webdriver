@@ -13,6 +13,18 @@ Set [`testEnvironment`](https://facebook.github.io/jest/docs/en/configuration.ht
       "browser": "safari"
     }
 
+You can pass [capabilities](https://www.w3.org/TR/webdriver1/#capabilities) as options too:    
+
+    "testEnvironment": "jest-environment-webdriver",
+    "testEnvironmentOptions": {
+      browser: 'firefox',
+      capabilities: {
+        browserName: 'Some user agent',
+        acceptInsecureCerts: true
+      }
+    }
+
+
 ## Environment API
 
 Next global objects and functions are available in testing code.
